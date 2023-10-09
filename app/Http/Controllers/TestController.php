@@ -8,8 +8,17 @@ use App\Models\Test;
 class TestController extends Controller
 {
     public function index(){
+
+        // Eloquent（エロクアント）
         $values = Test::all();
-        // dd($values);
+
+        $count = Test::count();
+
+        $first = Test::findOrFail(1);
+
+        $whereBBB = Test::where('text', '=', 'bbb')->get();
+
+        dd($values, $count, $first, $whereBBB);
         return view('tests.test', compact('values'));
     }
 }
