@@ -10,6 +10,8 @@ class TestController extends Controller
 {
     public function index(){
 
+        dd('test');
+
         // Eloquent（エロクアント）
         $values = Test::all();
 
@@ -28,3 +30,4 @@ class TestController extends Controller
         return view('tests.test', compact('values'));
     }
 }
+//
