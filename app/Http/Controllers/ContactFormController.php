@@ -103,7 +103,17 @@ class ContactFormController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $contact = ContactForm::find($id);
+        $contact->name = $request->name;
+        $contact->email = $request->email;
+        $contact->url = $request->url;
+        $contact->title = $request->title;
+        $contact->gender = $request->gender;
+        $contact->age = $request->age;
+        $contact->contact = $request->contact;
+        $contact->save();
+
+        return to_route('contacts.show', ['id' => $contact->id]);
     }
 
     /**
